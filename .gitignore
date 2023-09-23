@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Ignore visual studio code settings
 .vscode/
+
+# Do not sync paid content
+Zenva/
