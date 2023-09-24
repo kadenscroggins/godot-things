@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://7rruh4fdxwnt"]
+[gd_scene load_steps=2 format=3 uid="uid://7rruh4fdxwnt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pvyop"]
 
 [node name="Lithium" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pvyop")
