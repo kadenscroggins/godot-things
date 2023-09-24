@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ga0nfrb7gb6i"]
+
+[ext_resource type="Texture2D" uid="uid://bc1e3g41mg6qe" path="res://Zenva/Sprites/Player.png" id="1_bkqao"]
+[ext_resource type="Texture2D" uid="uid://b78gf6f8tjato" path="res://Zenva/Sprites/Coin.png" id="2_ufy1d"]
+
+[node name="Player" type="Sprite2D"]
+texture = ExtResource("1_bkqao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+texture = ExtResource("2_ufy1d")
