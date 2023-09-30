@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://v1etod1kids7" path="res://Scenes/Snowman.tscn" id="1_slvhf"]
 
 [node name="Lithium" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067699, 0, -0.0016067)
 
 [node name="Snowman" parent="." instance=ExtResource("1_slvhf")]
