@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dieuega6vqreb"]
+
+[ext_resource type="Texture2D" uid="uid://bc1e3g41mg6qe" path="res://Zenva/Sprites/Player.png" id="1_txm8m"]
+
+[resource]
+albedo_texture = ExtResource("1_txm8m")
