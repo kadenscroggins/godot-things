@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://7rruh4fdxwnt"]
+[gd_scene load_steps=7 format=3 uid="uid://7rruh4fdxwnt"]
+
+[ext_resource type="Material" uid="uid://17q5amm43amc" path="res://Materials/cyan.tres" id="1_mc431"]
+[ext_resource type="Material" uid="uid://dieuega6vqreb" path="res://Materials/fuschia.tres" id="2_kmlw2"]
+[ext_resource type="Material" uid="uid://cy7cnv6agme1u" path="res://Materials/robit.tres" id="3_eblyb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_6dhrt"]
 
@@ -10,12 +14,15 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067699, 0, -0.0016067)
 
 [node name="Sphere 1" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_mc431")
 mesh = SubResource("SphereMesh_6dhrt")
 
 [node name="Sphere 2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+material_override = ExtResource("2_kmlw2")
 mesh = SubResource("SphereMesh_v38x7")
 
 [node name="Sphere 3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+material_override = ExtResource("3_eblyb")
 mesh = SubResource("SphereMesh_ieha0")
