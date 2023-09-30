@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://7rruh4fdxwnt"]
+[gd_scene load_steps=4 format=3 uid="uid://7rruh4fdxwnt"]
 
-[ext_resource type="PackedScene" uid="uid://v1etod1kids7" path="res://Scenes/Snowman.tscn" id="1_slvhf"]
+[sub_resource type="SphereMesh" id="SphereMesh_6dhrt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v38x7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ieha0"]
 
 [node name="Lithium" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067699, 0, -0.0016067)
 
-[node name="Snowman" parent="." instance=ExtResource("1_slvhf")]
+[node name="Sphere 1" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6dhrt")
+
+[node name="Sphere 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("SphereMesh_v38x7")
+
+[node name="Sphere 3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+mesh = SubResource("SphereMesh_ieha0")
