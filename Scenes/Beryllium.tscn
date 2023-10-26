@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://k5et5n80my3h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xwaua"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kf15y"]
+
+[node name="Beryllium" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07542, 0)
+mesh = SubResource("SphereMesh_xwaua")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+visible = false
+light_energy = 0.192
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02725, 3.6407, 0)
+light_color = Color(1, 1, 0.34902, 1)
+light_energy = 0.238
+shadow_enabled = true
+omni_range = 390.085
+omni_attenuation = 0.258816
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.67874, 0, 0, 0, 1, 0, 0, 0, 2.89991, 0, 0, 0)
+mesh = SubResource("PlaneMesh_kf15y")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.48903, 2.05276)
+light_color = Color(0.580392, 0.784314, 0.133333, 1)
+light_energy = 6.486
+shadow_enabled = true
+spot_range = 6.36673
+spot_angle = 20.8044
