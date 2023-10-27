@@ -7,11 +7,10 @@ var ability: String = "slash"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	move_speed = 5.1
-	print(move_speed)
-	move_speed = 500.156
-	print(move_speed)
-
+	game_over = true
+	print(game_over)
+	ability = "heal"
+	print(ability)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
