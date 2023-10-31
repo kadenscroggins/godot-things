@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhupbwjpelqtr"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_05kyu"]
+[ext_resource type="Texture2D" uid="uid://wn8bdi8a1jea" path="res://Zenva/Sprites/Player.png" id="1_b8d3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lswq"]
+size = Vector2(66, 66)
+
+[node name="Nitrogen" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_05kyu")
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_b8d3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_7lswq")

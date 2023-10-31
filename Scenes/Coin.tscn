@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bf7nji4uncxl5"]
 
-[ext_resource type="Texture2D" uid="uid://b78gf6f8tjato" path="res://Zenva/Sprites/Coin.png" id="1_y54sv"]
+[ext_resource type="Texture2D" uid="uid://cn80xvbwok2ye" path="res://Zenva/Sprites/Coin.png" id="1_y54sv"]
 
 [node name="Coin" type="Sprite2D"]
 texture = ExtResource("1_y54sv")
