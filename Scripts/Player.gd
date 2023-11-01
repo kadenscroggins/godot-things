@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var move_speed: float = 200.0
+
 func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
@@ -13,7 +15,7 @@ func _physics_process(delta):
 	if Input.is_key_pressed(KEY_DOWN):
 		velocity.y += 1
 
-	velocity *= 50
+	velocity *= move_speed
 
 	move_and_slide()
 
