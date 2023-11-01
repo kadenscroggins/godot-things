@@ -19,3 +19,6 @@ mono_crash.*.json
 
 # Do not sync paid content
 Zenva/
+
+# Do not sync builds
+Builds/
