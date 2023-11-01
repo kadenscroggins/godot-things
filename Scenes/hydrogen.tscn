@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfvyymegfb6vo"]
 
-[ext_resource type="PackedScene" uid="uid://ga0nfrb7gb6i" path="res://Scenes/player.tscn" id="1_ph2tp"]
-[ext_resource type="Texture2D" uid="uid://b78gf6f8tjato" path="res://Zenva/Sprites/Coin.png" id="2_emcjc"]
+[ext_resource type="PackedScene" uid="uid://ga0nfrb7gb6i" path="res://Scenes/Sub-Scenes/player.tscn" id="1_ph2tp"]
+[ext_resource type="Texture2D" uid="uid://cn80xvbwok2ye" path="res://Zenva/Sprites/Coin.png" id="2_emcjc"]
 
 [node name="hydrogen" type="Node2D"]
 
