@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnc5is1ijd7xw"]
+[gd_scene load_steps=5 format=3 uid="uid://cnc5is1ijd7xw"]
 
 [ext_resource type="Material" uid="uid://bcrkyowwq5s4c" path="res://Materials/red_rubber.tres" id="1_2vx38"]
+[ext_resource type="Script" path="res://Scripts/Balloon.gd" id="1_rajsn"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gc2i7"]
 
@@ -9,6 +10,7 @@
 [node name="Oxygen" type="Node3D"]
 
 [node name="Balloon" type="Area3D" parent="."]
+script = ExtResource("1_rajsn")
 
 [node name="Model" type="MeshInstance3D" parent="Balloon"]
 mesh = SubResource("SphereMesh_gc2i7")
@@ -23,3 +25,5 @@ current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 2.03343, 0)
+
+[connection signal="input_event" from="Balloon" to="Balloon" method="_on_input_event"]
