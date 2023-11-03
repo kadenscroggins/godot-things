@@ -1,29 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnc5is1ijd7xw"]
+[gd_scene load_steps=3 format=3 uid="uid://cnc5is1ijd7xw"]
 
-[ext_resource type="Material" uid="uid://bcrkyowwq5s4c" path="res://Materials/red_rubber.tres" id="1_2vx38"]
-[ext_resource type="Script" path="res://Scripts/Balloon.gd" id="1_rajsn"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_gc2i7"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_8j21c"]
+[ext_resource type="Script" path="res://Scripts/Balloon_Manager.gd" id="1_uc5ok"]
+[ext_resource type="PackedScene" uid="uid://c7kmcv078pkb0" path="res://Scenes/Sub-Scenes/balloon.tscn" id="2_a62lq"]
 
 [node name="Oxygen" type="Node3D"]
-
-[node name="Balloon" type="Area3D" parent="."]
-script = ExtResource("1_rajsn")
-
-[node name="Model" type="MeshInstance3D" parent="Balloon"]
-mesh = SubResource("SphereMesh_gc2i7")
-surface_material_override/0 = ExtResource("1_2vx38")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
-shape = SubResource("SphereShape3D_8j21c")
+script = ExtResource("1_uc5ok")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+projection = 1
 current = true
+fov = 60.0
+size = 5.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 2.03343, 0)
 
-[connection signal="input_event" from="Balloon" to="Balloon" method="_on_input_event"]
+[node name="Balloon" parent="." instance=ExtResource("2_a62lq")]
+
+[node name="Balloon2" parent="." instance=ExtResource("2_a62lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+
+[node name="Balloon3" parent="." instance=ExtResource("2_a62lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+
+[node name="Balloon4" parent="." instance=ExtResource("2_a62lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+
+[node name="Balloon5" parent="." instance=ExtResource("2_a62lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
