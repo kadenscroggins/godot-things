@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://btslt0tbx6mml"]
+
+[ext_resource type="Texture2D" uid="uid://6gd6r1gebr8r" path="res://Zenva/Sprites/Crate.png" id="1_rviti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf5fk"]
+size = Vector2(14, 14)
+
+[node name="Crate" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 3.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_rviti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mf5fk")
