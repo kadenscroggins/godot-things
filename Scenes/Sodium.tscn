@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://kfyjfavq3gt1"]
+
+[ext_resource type="Script" path="res://Scripts/SkiPlayerMovement.gd" id="1_h2gpy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e67nf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qywji"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6gp04"]
+friction = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2ec"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6j46"]
+albedo_color = Color(1, 0.835294, 0.619608, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ea21r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wttdj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6qsx"]
+albedo_color = Color(0.458824, 0.266667, 0.160784, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ha87l"]
+
+[sub_resource type="Environment" id="Environment_snhka"]
+background_mode = 1
+background_color = Color(0.54902, 0.694118, 1, 1)
+
+[node name="Sodium" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 0.121712, 10.5121, 0, -0.0442995, 28.8817, 0, -3, -12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_e67nf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_qywji")
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9793, 0)
+physics_material_override = SubResource("PhysicsMaterial_6gp04")
+script = ExtResource("1_h2gpy")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.65723, 4.56792)
+
+[node name="Body" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590277, -2.38419e-07, -0.00111008)
+mesh = SubResource("CapsuleMesh_hq2ec")
+surface_material_override/0 = SubResource("StandardMaterial3D_o6j46")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590277, -2.38419e-07, -0.00111008)
+shape = SubResource("CapsuleShape3D_ea21r")
+
+[node name="Left Ski" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.24, 0, 0, 0, 0.04, 0, 0, 0, 2.03, -0.3, -1.01243, -0.3)
+mesh = SubResource("BoxMesh_wttdj")
+surface_material_override/0 = SubResource("StandardMaterial3D_v6qsx")
+
+[node name="Right Ski" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.24, 0, 0, 0, 0.04, 0, 0, 0, 2.03, 0.3, -1.012, -0.3)
+mesh = SubResource("BoxMesh_wttdj")
+surface_material_override/0 = SubResource("StandardMaterial3D_v6qsx")
+
+[node name="SkiCollider" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.800187, 0, 0, 0, -0.0500001, 0, 0, 0, 1.97141, 0, -1.00637, -0.288626)
+shape = SubResource("BoxShape3D_ha87l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -2.58096e-08, 0.5, 0.353553, 0.707107, 0.612372, -0.353553, 0.707107, -0.612372, 0, 6.32672, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_snhka")
