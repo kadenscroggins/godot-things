@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpkb4ohnhion5"]
+[gd_scene load_steps=8 format=3 uid="uid://dpkb4ohnhion5"]
 
 [ext_resource type="Texture2D" uid="uid://biwond464pw3f" path="res://Zenva/2D Platformer/Tiles/tiles_packed.png" id="1_6lu5x"]
 [ext_resource type="Script" path="res://Scenes/2D Platformer/Player.gd" id="2_5u163"]
 [ext_resource type="Texture2D" uid="uid://0ew6wvxah47o" path="res://Zenva/2D Platformer/Characters/character_0007.png" id="3_gigkb"]
+[ext_resource type="PackedScene" uid="uid://bpkngtlbtrkrp" path="res://Scenes/2D Platformer/enemy.tscn" id="4_udbwa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8igtn"]
 texture = ExtResource("1_6lu5x")
@@ -610,7 +611,7 @@ tile_set = SubResource("TileSet_6yubt")
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 65536, 1, 65535, 131072, 1, 0, 131072, 1, 1, 196608, 1, 131071, 131072, 6, 65536, 131072, 6, 65537, 196608, 6, 131070, 65536, 6, 196606, 65536, 6, 262142, 65536, 7, 131073, 196608, 6, 196609, 196608, 7, 196607, 131072, 6, 131072, 131072, 6, 262143, 131072, 7, 196608, 131072, 7, 131075, 65536, 3, 131076, 131072, 3, 131077, 196608, 3, 196612, 131072, 6, 196611, 65536, 6, 262147, 65536, 7, 262149, 196608, 7, 262148, 131072, 7, 196613, 196608, 6, 262151, 65536, 5, 262152, 196608, 5, 327687, 65536, 7, 327688, 196608, 7, 393226, 393216, 7, 393228, 393216, 7, 393230, 393216, 7, 393232, 786432, 6, 393233, 917504, 5, 327697, 851968, 4, 327698, 917504, 6, 262162, 786432, 6, 262163, 917504, 4, 327699, 983040, 5, 393235, 917504, 5, 393234, 786432, 6, 196627, 786432, 6, 196628, 851968, 6, 196629, 917504, 6, 262164, 983040, 4, 262165, 983040, 4, 327700, 983040, 5, 327701, 983040, 5, 393237, 983040, 6, 393236, 983040, 5, 458772, 917504, 5, 458771, 851968, 6, 458770, 851968, 6, 458769, 851968, 6, 458768, 786432, 6, 458773, 786432, 6, 458774, 917504, 5, 393238, 983040, 5, 327702, 983040, 5, 262166, 983040, 5, 196630, 983040, 5, 131094, 917504, 4, 131093, 851968, 6, 131092, 786432, 6, 131095, 983040, 4, 196631, 983040, 5, 262167, 983040, 6, 327703, 983040, 4, 393239, 983040, 5, 458775, 983040, 6, 65559, 327680, 7, 22, 720896, 5, 65558, 720896, 6)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(0, -14)
 script = ExtResource("2_5u163")
 
@@ -624,3 +625,14 @@ shape = SubResource("RectangleShape2D_4f2m0")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -18)
 zoom = Vector2(3, 3)
+
+[node name="Enemy" parent="." instance=ExtResource("4_udbwa")]
+
+[node name="Enemy2" parent="." instance=ExtResource("4_udbwa")]
+position = Vector2(143, 3)
+move_speed = 45.0
+move_direction = Vector2(0, 50)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_udbwa")]
+position = Vector2(223, 76)
+move_speed = 50.0
