@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpkb4ohnhion5"]
+[gd_scene load_steps=9 format=3 uid="uid://dpkb4ohnhion5"]
 
 [ext_resource type="Texture2D" uid="uid://biwond464pw3f" path="res://Zenva/2D Platformer/Tiles/tiles_packed.png" id="1_6lu5x"]
 [ext_resource type="Script" path="res://Scenes/2D Platformer/Player.gd" id="2_5u163"]
 [ext_resource type="Texture2D" uid="uid://0ew6wvxah47o" path="res://Zenva/2D Platformer/Characters/character_0007.png" id="3_gigkb"]
 [ext_resource type="PackedScene" uid="uid://bpkngtlbtrkrp" path="res://Scenes/2D Platformer/enemy.tscn" id="4_udbwa"]
+[ext_resource type="PackedScene" uid="uid://pjrti0g2kg1x" path="res://Scenes/2D Platformer/spikes.tscn" id="5_wdx3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8igtn"]
 texture = ExtResource("1_6lu5x")
@@ -636,3 +637,5 @@ move_direction = Vector2(0, 50)
 [node name="Enemy3" parent="." instance=ExtResource("4_udbwa")]
 position = Vector2(223, 76)
 move_speed = 50.0
+
+[node name="Spikes" parent="." instance=ExtResource("5_wdx3i")]
