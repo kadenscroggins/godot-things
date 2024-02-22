@@ -24,7 +24,7 @@ func _on_host_pressed():
 	multiplayer.multiplayer_peer = peer
 	start_game()
 
-func on_connect_pressed():
+func _on_connect_pressed():
 	# Start as client.
 	var txt: String = $UI/Net/Options/Remote.text
 	if txt == "":
@@ -41,3 +41,21 @@ func on_connect_pressed():
 func start_game():
 	$UI.hide()
 	get_tree().paused = false
+	# Only change level on the server - clients instantiate level via spawner
+	if multiplayer.is_server():
+		change_level.call_deferred(load("res://Grass Test/Scenes/Grass.tscn"))
+
+func change_level(scene: PackedScene):
+	# Remove old level if any.
+	var level = $Level
+	for c in level.get_children():
+		level.remove_child(c)
+		c.queue_free()
+	# Add new level
+	level.add_child(scene.instantiate())
+
+func _input(event):
+	if not multiplayer.is_server():
+		return
+	if event.is_action("ui_home") and Input.is_action_just_pressed("ui_home"):
+		change_level.call_deferred(load("res://Grass Test/Scenes/Grass.tscn"))

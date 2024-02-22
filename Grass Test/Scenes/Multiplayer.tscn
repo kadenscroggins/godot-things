@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr0smfa31fy1h"]
+[gd_scene load_steps=2 format=3 uid="uid://cr0smfa31fy1h"]
 
 [ext_resource type="Script" path="res://Grass Test/Scripts/Multiplayer.gd" id="1_0306i"]
-[ext_resource type="PackedScene" uid="uid://bma76au5u0hbp" path="res://Grass Test/Scenes/Grass.tscn" id="2_1k8kc"]
 
 [node name="Multiplayer" type="Node"]
 script = ExtResource("1_0306i")
 
 [node name="Level" type="Node" parent="."]
 
-[node name="World" parent="Level" instance=ExtResource("2_1k8kc")]
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Grass Test/Scenes/Grass.tscn")
+spawn_path = NodePath("../Level")
+spawn_limit = 1
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -48,3 +50,6 @@ text = "127.0.0.1"
 placeholder_text = "Remote Host"
 caret_blink = true
 caret_blink_interval = 0.5
+
+[connection signal="pressed" from="UI/Net/Options/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/Net/Options/Connect" to="." method="_on_connect_pressed"]

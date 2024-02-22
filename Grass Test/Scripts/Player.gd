@@ -1,5 +1,11 @@
 extends CharacterBody3D
 
+# Set by the authority, synchronized on spawn.
+@export var player := 1 :
+	set(id):
+		player = id
+		# Give authority over the player input to the appropriate peer.
+		$PlayerInput.set_multiplayer_authority(id)
 
 var speed
 const WALK_SPEED = 5.0
@@ -21,9 +27,18 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+# Player synchronized input.
+@onready var input = $PlayerInput
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	# Set the camera as current if we are this player.
+	if player == multiplayer.get_unique_id():
+		$Head/Camera3D.current = true
+	# Only process on server.
+	# EDIT: Let the client simulate player movement too to compesate network input latency.
+	# set_physics_process(multiplayer.is_server())
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
