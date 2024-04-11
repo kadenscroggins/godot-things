@@ -39,9 +39,11 @@ func _on_connect_pressed():
 	start_game()
 
 func start_game():
+	# Hide the UI and unpause to start the game.
 	$UI.hide()
 	get_tree().paused = false
-	# Only change level on the server - clients instantiate level via spawner
+	# Only change level on the server
+	# Clients instantiate level via spawner
 	if multiplayer.is_server():
 		change_level.call_deferred(load("res://Grass Test/Scenes/Grass.tscn"))
 
